@@ -8,6 +8,7 @@
 
     $id = isset($_GET["id"]) ? $_GET["id"] : "";
     $token = isset($_GET["token"]) ? $_GET["token"] : "";
+    // comet pipi romanioli//
 
     if($id == "" || $token == "") {
         echo "Error al procesar la petición";
