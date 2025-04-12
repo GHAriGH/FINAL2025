@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Cada elemento hijo está dentro de los bordes del elemento padre*/
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+header .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+body {
+    background-color: #2C3E50;
+}
+
+main> .container {
+   padding: 90px 0;
+}
+
+h2, h3, h4 {
+    color: white;
+}
+
+.lead {
+    color: white;
+    font-size: 20px;
+}
+
+.btn-primary {
+    background-color: #f61706;
+    border-color: #f61706;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover{
+    background-color: #cd1103;
+    border-color: #cd1103;
+    transform: translate(0, -6px);
+}
+
+.btn-outline-primary {
+    color: whitesmoke;
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+    transition: transform 0.3s ease;
+}
+
+.btn-outline-primary:hover{
+    color: white;
+    background-color: #16a085;
+    border-color: #16a085;
+    transform: translate(0, -6px);
+}
+
+.btn-light {
+   color:#2C3E50;
+   background-color: white; 
+   border-color: #2C3E50;
+   transition: transform 0.3s ease;
+}
+
+.btn-light:hover {
+    color: white;
+    background-color: black;
+    border-color: black;
+    transform: translate(0, -6px);
+}
+
+.btn-secondary {
+    transition: transform 0.3s ease;
+}
+
+.btn-secondary:hover {
+    color: white;
+    background-color: #2C3E50;
+    border-color: #2C3E50;
+    transform: translate(0, -6px);
+}    
