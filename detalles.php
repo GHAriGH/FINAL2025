@@ -8,7 +8,6 @@
 
     $id = isset($_GET["id"]) ? $_GET["id"] : "";
     $token = isset($_GET["token"]) ? $_GET["token"] : "";
-    // comet pipi romanioli//
 
     if($id == "" || $token == "") {
         echo "Error al procesar la petición";
@@ -130,7 +129,9 @@
                         <?php echo $descripcion ?>
                     </p>
                     <div class="d-grid gap-3 col-10 mx-auto">
-                        <button class="btn btn-primary" type="button">Comprar ahora</button>
+                        <a href="checkout.php" >
+                            <button class="btn btn-primary" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Comprar ahora</button>
+                        </a>    
                         <button class="btn btn-light" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al Carrito</button>
                     </div>
                 </div>
