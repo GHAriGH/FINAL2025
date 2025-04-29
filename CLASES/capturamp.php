@@ -1,4 +1,7 @@
 <?php
+
+require "../CONFIG/config.php";
+
     $payment = $_GET['payment_id'];
     $status = $_GET['status'];
     $payment_type = $_GET['payment_type'];
@@ -10,5 +13,7 @@
     echo $status.'<br>';
     echo $payment_type.'<br>';
     echo $order_id.'<br>';
+
+    unset($_SESSION['carrito']);
 
 ?>

@@ -82,7 +82,7 @@
                     </div> 
                     <div class="row">
                         <div class="col-12">
-                            <div class="checkout-btn"><button id="pagar">Pagar con Mercado Pago</button></div>
+                            <div class="checkout-btn">Pagar con Mercado Pago</div>
                         </div>
                     </div>     
                 </div>
@@ -111,7 +111,7 @@
 
                                             $item = new MercadoPago\Item();
                                             $item->id = $_id;
-                                            $item->title = $nombre;
+                                            $item->title =$nombre;
                                             $item->quantity = $cantidad;
                                             $item->unit_price = $precio;
                                             $item->currency_id = 'ARS';
@@ -132,49 +132,32 @@
                                         <td colspan="2">
                                             <p class="h3 text-end" id="total"><?php echo '$ ' . number_format($total, 2, ',', '.'); ?></p>
                                         </td>
-
                                     </tr>
                             </tbody>
-
                         </table>
                     </div>
                 </div>
             </div>                    
         </div>
-        
     </main>
 
     <?php
         $preference->items = $productos_mp;
 
         $preference->back_urls = array(
-            "success" => "http://localhost/FINAL/tienda.php",
-            "failure" => "http://localhost/FINAL/tienda.php"
+            "success" => "http://localhost/FINAL/CLASES/capturamp.php"
+            //"failure" => "http://localhost/FINAL/tienda.php"
         );
         $preference->auto_return = "approved";
         $preference->binary_mode = true;
         $preference->save();
         $init_point = $preference->init_point;
+               
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    
     <script>
-        /*const mp = new MercadoPago('TEST-3716fa81-b5cb-49b8-9f72-f399ca469c74', {
-            locale: 'es-AR'
-        });
-        mp.checkout({
-            preference: {
-                id: '<?php echo $preference->id; ?>'
-            },
-            render: {
-                container: '.checkout-btn',
-                label: 'Pagar con Mercado Pago'
-            }
-        })*/
-        document.getElementById('pagar').addEventListener('click', () => {
-        window.location.href = "<?php echo $preference->init_point; ?>";
-    });
 
         paypal.Buttons({
             style:{
@@ -185,7 +168,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: <?php echo $total;?>
+                            value: <?php echo $total; ?>
                         }
                     }]
                 });
@@ -214,8 +197,27 @@
                 console.log(data)
             }
         }).render('#paypal-button-container');
+
+        document.getElementById('pagar').addEventListener('click', () => {
+            window.location.href = "<?php echo $preference->init_point; ?>";
+        });
+
+        const mp = new MercadoPago('TEST-3716fa81-b5cb-49b8-9f72-f399ca469c74', {
+            locale: 'es-AR'
+        });
+        mp.checkout({
+            preference: {
+                id: '<?php echo $preference->id; ?>'
+            },
+            render: {
+                container: '.checkout-btn',
+                label: 'Pagar con Mercado Pago'
+            }
+        })
+
     </script>
 
 </body>
 </html>
 
+<!--

@@ -133,6 +133,7 @@
                             <button class="btn btn-primary" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Comprar ahora</button>
                         </a>    
                         <button class="btn btn-light" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al Carrito</button>
+                        <a href="tienda.php" class="btn btn-dark">Volver a la Tienda</a>
                     </div>
                 </div>
             </div>        

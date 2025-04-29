@@ -26,7 +26,7 @@
 
             $sqlDet = $conex->prepare("SELECT productos.Nombre, productos.Precio, detalle_venta.Cantidad FROM detalle_venta INNER JOIN productos ON detalle_venta.Id_Producto = productos.Id_Producto WHERE detalle_venta.Id_Venta = ?");
             $sqlDet->execute([$idVenta]);
-            /*$rowDet = $sqlDet->fetch(PDO::FETCH_ASSOC);*/
+            $rowDet = $sqlDet->fetch(PDO::FETCH_ASSOC);
 
         } else {
             $error = 'Error al completar la venta';

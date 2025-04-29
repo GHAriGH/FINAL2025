@@ -42,9 +42,10 @@ if(is_array($datos)) {
             }
             include 'enviarEmail.php';
         }
-        unset($_SESSION['carrito']);
+        
     }
 
 }
+unset($_SESSION['carrito']);
 
 ?>
