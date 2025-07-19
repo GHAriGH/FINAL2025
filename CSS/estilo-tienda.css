@@ -94,9 +94,8 @@ h2, h3, h4 {
     transform: translate(0, -6px);
 }
 
-.checkout-btn {
-    display: flex;
-    /*display: inline-block;
+.checkout-btn button {
+    display: inline-block;
     background-color: #009EE3; 
     color: white;
     width: 100%;
@@ -106,9 +105,13 @@ h2, h3, h4 {
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
-    transition: background-color 0.3s ease;*/
+    transition: background-color 0.3s ease;
 }
 
-.checkout-btn:hover {
+.checkout-btn button:hover {
     background-color: #0077b6;
+}
+
+#pagar {
+    display: none !important;
 }

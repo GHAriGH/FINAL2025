@@ -15,7 +15,8 @@ try {
     $mail->Host       = 'smtp.gmail.com';                     
     $mail->SMTPAuth   = true;                                  
     $mail->Username   = 'pruebasoft2025@gmail.com';                    
-    $mail->Password   = 'xcuvwnfsnlzafyrp';                             
+    $mail->Password   = 'setr erns cpbp gybo
+';                             
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;          
     $mail->Port       = 587;                                    
 
@@ -34,7 +35,7 @@ try {
     $mail->send();
 } catch (Exception $e) {
     echo "Error al enviar el correo: {$mail->ErrorInfo}";
-    exit;
+    //exit;
 }
 
 ?>

@@ -24,28 +24,28 @@ if(is_array($datos)) {
     $id = $conex->lastInsertId();
 
     if($id > 0) {
+        var_dump($_SESSION['carrito']);
 
         $productos = isset($_SESSION['carrito']['productos']) ? $_SESSION['carrito']['productos'] : null;
 
         if($productos != null) {
             foreach($productos as $clave => $cantidad){
     
-                $sql = $conex->prepare("SELECT Id_Producto, Nombre, Precio FROM Productos WHERE Id_Producto = ? AND Activo = 1");
-                $sql->execute([$clave]);
-                $row_prod = $sql->fetch(PDO::FETCH_ASSOC);
+                $sql_prod = $conex->prepare("SELECT Id_Producto, Nombre, Precio FROM productos WHERE Id_Producto = ? AND Activo = 1");
+                $sql_prod->execute([$clave]);
+                $row_prod = $sql_prod->fetch(PDO::FETCH_ASSOC);
 
                 $precio = $row_prod['Precio'];
-                
-                $sql_detalle = $conex->prepare("INSERT INTO detalle_venta (Id_Venta, Id_Producto, Precio, Cantidad) VALUES (?, ?, ?, ?)");
-                $sql_detalle->execute([$id, $clave, $precio, $cantidad]);
+
+                $sql_detalle = $conex->prepare("INSERT INTO detalle_venta (Id_Venta, Id_Producto, Cantidad) VALUES (?, ?, ?)");
+                $sql_detalle->execute([$id, $clave, $cantidad]);
     
             }
             include 'enviarEmail.php';
         }
         
+        unset($_SESSION['carrito']);        
     }
-
 }
-unset($_SESSION['carrito']);
 
 ?>

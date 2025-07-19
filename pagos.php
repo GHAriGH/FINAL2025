@@ -1,12 +1,13 @@
 <?php
 
-    require "CONFIG/config.php";
+    require "CONFIG/config.php";    
     require "CONFIG/database.php";
     require 'vendor/autoload.php';
 
     MercadoPago\SDK::setAccessToken(TOKEN_MP);
 
     $preference = new MercadoPago\Preference();
+
     $productos_mp = array();
       
     $db = new Database();
@@ -27,7 +28,6 @@
         header("Location: tienda.php");
         exit;
     }
-
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +82,7 @@
                     </div> 
                     <div class="row">
                         <div class="col-12">
-                            <div class="checkout-btn">Pagar con Mercado Pago</div>
+                            <div class="checkout-btn"></div>
                         </div>
                     </div>     
                 </div>
@@ -148,76 +148,71 @@
             "success" => "http://localhost/FINAL/CLASES/capturamp.php"
             //"failure" => "http://localhost/FINAL/tienda.php"
         );
-        $preference->auto_return = "approved";
+        //$preference->auto_return = "approved";
         $preference->binary_mode = true;
         $preference->save();
         $init_point = $preference->init_point;
-               
+        
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
     <script>
-
-        paypal.Buttons({
-            style:{
-                shape: 'pill',
-                label: 'pay'
-            },
-            createOrder: function(data, actions){
-                return actions.order.create({
-                    purchase_units: [{
-                        amount: {
-                            value: <?php echo $total; ?>
-                        }
-                    }]
-                });
-            },
-            onApprove: function(data, actions){
-                let url = 'CLASES/captura.php'
-                actions.order.capture().then(function(detalles){
-                    alert("Su pago fue exitoso");
-                    /*window.location.href = "tienda.php"*/
-                    return fetch(url, {
-                        method: 'post',
-                        headers: {
-                            'content-type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            detalles: detalles
+        document.addEventListener('DOMContentLoaded', () => {
+            paypal.Buttons({
+                style:{
+                    shape: 'pill',
+                    label: 'pay'
+                },
+                createOrder: function(data, actions){
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: <?php echo $total; ?>
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions){
+                    let url = 'CLASES/captura.php'
+                    actions.order.capture().then(function(detalles){
+                        alert("Su pago fue exitoso");
+                        /*window.location.href = "tienda.php"*/
+                        return fetch(url, {
+                            method: 'post',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                detalles: detalles
+                            })
+                        }).then(function(response){
+                            window.location.href = "completado.php?key=" + detalles['id'];
                         })
-                    }).then(function(response){
-                        window.location.href = "completado.php?key=" + detalles['id'];
-                    })
-                });
-                
-            },
-            onCancel: function(data){
-                alert("Pago Cancelado")
-                console.log(data)
-            }
-        }).render('#paypal-button-container');
+                    });
+                    
+                },
+                onCancel: function(data){
+                    alert("Pago Cancelado")
+                    console.log(data)
+                }
+            }).render('#paypal-button-container');
 
-        document.getElementById('pagar').addEventListener('click', () => {
-            window.location.href = "<?php echo $preference->init_point; ?>";
-        });
-
-        const mp = new MercadoPago('TEST-3716fa81-b5cb-49b8-9f72-f399ca469c74', {
-            locale: 'es-AR'
-        });
-        mp.checkout({
-            preference: {
-                id: '<?php echo $preference->id; ?>'
-            },
-            render: {
-                container: '.checkout-btn',
-                label: 'Pagar con Mercado Pago'
-            }
+            const mp = new MercadoPago('TEST-3716fa81-b5cb-49b8-9f72-f399ca469c74', {
+                locale: 'es-AR'
+            });
+            mp.checkout({
+                preference: {
+                    id: '<?php echo $preference->id; ?>'
+                },
+                render: {
+                    container: '.checkout-btn',
+                    label: 'Pagar con Mercado Pago'
+                }
+            }); 
         })
-
     </script>
 
 </body>
 </html>
 
-<!--

@@ -124,7 +124,7 @@
                 <div class="col-md-6 order-md-2">
                     <h2><strong><?php echo $nombre ?></strong></h2>
                     <h3><strong>$ <?php echo number_format($precio, 2, ",", ".") ?></strong></h3>
-                    <h4>Precio p/Socio: $ <?php echo number_format($preciodesc, 2, ",", ".") ?></h4>
+                    <!--<h4>Precio p/Socio: $ <?php echo number_format($preciodesc, 2, ",", ".") ?></h4>-->
                     <p class="lead">
                         <?php echo $descripcion ?>
                     </p>
