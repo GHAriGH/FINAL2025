@@ -35,6 +35,7 @@ h2, h3, h4 {
 .btn-primary {
     background-color: #f61706;
     border-color: #f61706;
+    width: 100%;
     transition: transform 0.3s ease;
 }
 
@@ -62,6 +63,7 @@ h2, h3, h4 {
    color:#2C3E50;
    background-color: white; 
    border-color: #2C3E50;
+   width: 100%;
    transition: transform 0.3s ease;
 }
 
@@ -81,4 +83,35 @@ h2, h3, h4 {
     background-color: #2C3E50;
     border-color: #2C3E50;
     transform: translate(0, -6px);
-}    
+}  
+
+.btn-dark {
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.btn-dark:hover {
+    transform: translate(0, -6px);
+}
+
+.checkout-btn button {
+    display: inline-block;
+    background-color: #009EE3; 
+    color: white;
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn button:hover {
+    background-color: #0077b6;
+}
+
+#pagar {
+    display: none !important;
+}

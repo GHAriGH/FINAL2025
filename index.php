@@ -8,7 +8,8 @@
     <link rel="shortcut icon" href="IMG/icono.png">
     <title>Tucumán Gym</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="CSS\estilo.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/estilo.css">   
 </head>
 
 <body>
@@ -27,8 +28,10 @@
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#sucursales">Sucursales</a></li>
                     <li><a href="#planes">Planes</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
                     <li><a href="tienda.php">Tienda</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#inscripcion">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,7 +39,7 @@
         <div class="header-text">
             <h1>Tucumán Gym</h1>
             <p>"Superá tus límites, transformá tu cuerpo, transformá tu vida"<p>
-            <a href="#" class=btn-1>Más Información</a>   
+            <a href="#planes" class=btn-1>Empezá ya</a>   
         </div>
 
     </header>
@@ -180,78 +183,192 @@
     <section class="precios container">
 
         <div class="precio">
-           <h3>$4500</h3> 
+           <h3>$45000</h3> 
            <h2>Pase x clase</h2>
            <ul>
                 <li>Derecho a una clase</li>
                 <li>Ingreso 3 veces/semana a la misma clase</li>
                 <li>Horario sujeto a clase</li>
            </ul>
-           <a href="#" class="btn-1">Más INFO</a>
+           <a href="#inscripcion" class="btn-1">Inscribite</a>
         </div>
 
         <div class="precio">
-            <h3>$5000</h3> 
+            <h3>$50000</h3> 
             <h2>Low cost</h2>
             <ul>
                 <li>Lunes a Viernes de 6.30 a 14</li>
                 <li>Sábados de 9 a 17 hs</li>
                 <li>Instructor en el salón</li>
             </ul>
-            <a href="#" class="btn-1">Más INFO</a>
+            <a href="#inscripcion" class="btn-1">Inscribite</a>
          </div>
 
          <div class="precio">
-            <h3>$6000</h3> 
-            <h2>Pase libre</h2>
+            <h3>$60000</h3> 
+            <h2>Pase libre multisedes</h2>
             <ul>
                 <li>Acceso a todos los servicios</li>
                 <li>Clases libres</li>  
                 <li>Eventos exclusivos</li>
             </ul>
-            <a href="#" class="btn-1">Más INFO</a>
+            <a href="#inscripcion" class="btn-1">Inscribite</a>
          </div>
 
     </section>
 
+    <section class="horarios" id="horarios">
+
+        <h2>Horarios</h2> 
+
+        <div class="horarios container">
+
+            <div id="carouselExampleCaptions" class="carousel slide">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="IMG/Funcional.jpg" class="d-block w-50 mx-auto" alt="Imagen de clase de Pilates">
+                        <div class="carousel-caption small-text">
+                            <h5>Lunes, Miércoles y Viernes</h5>
+                            <ul>
+                                <li>10:00 - Pilates</li>
+                                <li>14:00 - Spinning</li>
+                                <li>17:00 - Body Pump</li>
+                                <li>18:00 - GAP</li>
+                                <li>18:00 - Boxeo</li>
+                                <li>19:00 - Spinning</li>
+                                <li>19:00 - Calistenia</li>
+                                <li>20:00 - Spinning</li>
+                                <li>20:00 - Zumba</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="IMG/Spinning.jpg" class="d-block w-50 mx-auto" alt="Imagen de clase de Spinning">
+                        <div class="carousel-caption small-text">
+                            <h5>Martes y Jueves</h5>
+                            <ul>
+                                <li>10:00 - Pilates</li>
+                                <li>14:00 - Spinning</li>
+                                <li>15:00 - Pilates</li>
+                                <li>18:00 - Stretching</li>
+                                <li>19:00 - Zumba</li>
+                                <li>19:00 - Calistenia</li>
+                                <li>19:00 - Spinning</li>
+                                <li>20:00 - Body Pump</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="IMG/pilates.jpg" class="d-block w-50 mx-auto" alt="Imagen de Clase Funcional">
+                        <div class="carousel-caption small-text">
+                            <h5>Sábados</h5>
+                            <ul>
+                                <li>10:00 - Pilates</li>
+                                <li>14:00 - Spinning</li>
+                                <li>15:00 - Pilates</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>   
+
+        </div>
+    </section>         
+    
+    <section class="nosotros container" id="nosotros">
+
+        <div class="nosotros">
+            <h2>Sobre nosotros</h2>
+            <p>
+                En Tucumán Gym, creemos que el bienestar es un estilo de vida. Somos un gimnasio con más de una década comprometido con ayudarte a alcanzar tus metas físicas y mejorar tu calidad de vida en un ambiente motivador, profesional y cercano.                
+                Contamos con un equipo de instructores calificados que te acompañará en cada paso, ya sea que estés comenzando o busques superar tus propios límites. Ofrecemos una amplia variedad de servicios pensados para todas las edades y niveles de entrenamiento.
+                Nuestro objetivo es que cada persona que ingrese a nuestro gimnasio se sienta parte de una comunidad que se apoya, se motiva y crece junta.
+                Te invitamos a visitarnos y comenzar hoy mismo a transformar tu cuerpo y tu salud.
+            </p>
+            <a href="#inscripcion" class="btn-1">Empezá ya</a>
+        </div>
+
+    </section>    
+
+    <section class="inscripcion container" id="inscripcion">
+        <form method="post">
+            <h2>Inscribite ahora</h2>
+            <h5>Dejanos tus datos, te contactaremos para que inicies tu transformación</h5>
+            <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Nombre">
+                <img class="input-icon" src="IMG/usuario.png" alt="Icono de Usuario">
+            </div>
+            <div class="input-wrapper">
+                <input type="email" name="email" placeholder="Email">
+                <img class="input-icon" src="IMG/mail.png" alt="Icono de Email">
+            </div>
+            <div class="input-wrapper">
+                <input type="tel" name="telefono" placeholder="Telefono">
+                <img class="input-icon" src="IMG/telefono.png" alt="Icono de Teléfono">
+            </div>
+            <div class="input-wrapper">
+                <input type="text" name="domicilio" placeholder="Domicilio">
+                <img class="input-icon" src="IMG/ubicacion.png" alt="Icono de Ubicación">
+            </div>
+            <div class="input-wrapper">
+                <input type="textarea" name="mensaje" placeholder="Mensaje" rows="5" cols="50">
+                <img class="input-icon" src="IMG/mensaje.png" alt="Icono de Mensaje">
+            </div>
+
+            <input class="btn-1" type="submit" name="enviar" value="Enviar">
+        
+        </form>
+
+    </section> 
+
     <footer class="footer">
 
-        <div class="conteiner">
+        <div class="container">
 
             <div class="footer-row">
 
                 <div class="footer-links">
-                    <h4>Compañia</h4>
+                    <h4>Gimnasio</h4>
                     <ul>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Nuestros servicios</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#sucursales">Nuestras sucursales</a></li>
                         <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Inscribite</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
-                    <h4>Ayuda</h4>
+                    <h4>Planes</h4>
                     <ul>
-                        <li><a href="#">Preguntas</a></li>
-                        <li><a href="#">Compras</a></li>
-                        <li><a href="#">Envios</a></li>
-                        <li><a href="#">Pagos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#inscripcion">Consultas</a></li>
+                        <li><a href="#planes">Inscribite</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4>Tienda</h4>
                     <ul>
-                        <li><a href="#">Indumentaria</a></li>
-                        <li><a href="#">Artículos Fitness</a></li>
-                        <li><a href="#">Planes de Nutrición</a></li>
-                        <li><a href="#">Tutoriales-Videos</a></li>
+                        <li><a href="tienda.php">Comprar</a></li>
+                        <li><a href="#inscripcion">Reclamos</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
-                    <h4>Síguenos</h4>
+                    <h4>Seguinos</h4>
                         <div class="social-links">
                             <a href="#"><i class="fab fa-facebook-f"></i></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></i></a>
@@ -265,7 +382,10 @@
 
         </div>
 
-    </footer>
+    </footer> 
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
 
 </body>
 </html>

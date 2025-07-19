@@ -116,9 +116,10 @@
             <?php if($lista_carrito != null) { ?>
             <div class="row">
                 <div class="col-md-5 offset-md-7 d-grid gap-2">
-                    <a href="pagos.php" class="btn btn-primary btn-lg">Pagar</a>           
-                </div>                
-            </div> 
+                    <a href="pagos.php" class="btn btn-primary btn-lg">Pagar</a> 
+                    <a href="tienda.php" class="btn btn-dark">Volver a la Tienda</a>          
+                </div> 
+            </div>
             <?php } ?>               
         </div>
         

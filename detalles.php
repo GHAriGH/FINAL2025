@@ -8,7 +8,6 @@
 
     $id = isset($_GET["id"]) ? $_GET["id"] : "";
     $token = isset($_GET["token"]) ? $_GET["token"] : "";
-    // comet pipi romanioli//
 
     if($id == "" || $token == "") {
         echo "Error al procesar la petición";
@@ -125,13 +124,16 @@
                 <div class="col-md-6 order-md-2">
                     <h2><strong><?php echo $nombre ?></strong></h2>
                     <h3><strong>$ <?php echo number_format($precio, 2, ",", ".") ?></strong></h3>
-                    <h4>Precio p/Socio: $ <?php echo number_format($preciodesc, 2, ",", ".") ?></h4>
+                    <!--<h4>Precio p/Socio: $ <?php echo number_format($preciodesc, 2, ",", ".") ?></h4>-->
                     <p class="lead">
                         <?php echo $descripcion ?>
                     </p>
                     <div class="d-grid gap-3 col-10 mx-auto">
-                        <button class="btn btn-primary" type="button">Comprar ahora</button>
+                        <a href="checkout.php" >
+                            <button class="btn btn-primary" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Comprar ahora</button>
+                        </a>    
                         <button class="btn btn-light" type="button" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>')">Agregar al Carrito</button>
+                        <a href="tienda.php" class="btn btn-dark">Volver a la Tienda</a>
                     </div>
                 </div>
             </div>        

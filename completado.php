@@ -5,7 +5,7 @@
     $db = new Database();
     $conex = $db->Conectar();
 
-    $id_transaccion = isset($_GET['key']) ? $_GET['key'] : '';
+    $id_transaccion = isset($_GET['key']) ? $_GET['key'] : '0';
     $error = '';
 
     if($id_transaccion == '') {
@@ -13,12 +13,12 @@
     } else {
         $sql = $conex->prepare("SELECT COUNT(Id_Venta) FROM ventas WHERE Id_Transaccion = ? AND Estado = ?");
         $sql->execute([$id_transaccion, 'COMPLETED']);
-
+       
         if($sql->fetchColumn() > 0){
 
-            $sqlVta = $conex->prepare("SELECT Id_Venta, Fecha, Email, Total FROM Ventas WHERE Id_Transaccion = ? AND Estado = ? LIMIT 1");
-            $sqlVta->execute([$id_transaccion, 'COMPLETED']);
-            $rowVta = $sqlVta->fetch(PDO::FETCH_ASSOC);
+            $sql = $conex->prepare("SELECT Id_Venta, Fecha, Email, Total FROM ventas WHERE Id_Transaccion = ? AND Estado = ? LIMIT 1");
+            $sql->execute([$id_transaccion, 'COMPLETED']);
+            $rowVta = $sql->fetch(PDO::FETCH_ASSOC);
 
             $idVenta = $rowVta['Id_Venta'];
             $fecha = $rowVta['Fecha'];
@@ -26,7 +26,7 @@
 
             $sqlDet = $conex->prepare("SELECT productos.Nombre, productos.Precio, detalle_venta.Cantidad FROM detalle_venta INNER JOIN productos ON detalle_venta.Id_Producto = productos.Id_Producto WHERE detalle_venta.Id_Venta = ?");
             $sqlDet->execute([$idVenta]);
-            /*$rowDet = $sqlDet->fetch(PDO::FETCH_ASSOC);*/
+            //$rowDet = $sqlDet->fetch(PDO::FETCH_ASSOC);
 
         } else {
             $error = 'Error al completar la venta';
@@ -43,7 +43,7 @@
     <link rel="shortcut icon" href="IMG/icono.png">
     <title>Tucuman Gym: Tienda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS\estilo-tienda.css">
+    <link rel="stylesheet" href="CSS/estilo-tienda.css">
 </head>
 <body>
 
@@ -99,10 +99,10 @@
                                 </thead>
                                 <tbody>
                                     <?php while($rowDet = $sqlDet->fetch(PDO::FETCH_ASSOC)) { 
-                                        $importe = $rowDet['detalle_venta.Cantidad'] * $rowDet['productos.Precio']; ?>
+                                        $importe = $rowDet['Cantidad'] * $rowDet['Precio']; ?>
                                         <tr>
-                                            <td><?php echo $rowDet['productos.Nombre']; ?></td>
-                                            <td><?php echo $rowDet['detalle_venta.Cantidad']; ?></td>
+                                            <td><?php echo $rowDet['Nombre']; ?></td>
+                                            <td><?php echo $rowDet['Cantidad']; ?></td>
                                             <td><?php echo  '$ ' . number_format($importe, 2, ',', '.'); ?></td>
                                         </tr>
                                     <?php } ?>    
