@@ -7,7 +7,7 @@
 
     $enviado = false;
 
-    if (isset($_POST['enviar'])) {
+    if (isset($_POST['enviar'])){
         $name=trim($_POST['name']);
         $email=trim($_POST['email']);
         $telefono=trim($_POST['telefono']);
@@ -17,7 +17,7 @@
         $fecha=date("d-m-y");
         $sql = $conex->prepare("INSERT INTO mensajes(Nombre, Email, Telefono, Domicilio, Id_Plan, Mensaje, Fecha) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $enviado = $sql->execute([$name, $email, $telefono, $domicilio, $plan, $mensaje, $fecha]);
-    }
+    } 
     
 ?>    
 
@@ -332,19 +332,6 @@
                
         </form>
         
-        <!--<input type="checkbox" id="btn-modal">
-
-        <div class="container-modal">
-            <div class="content-modal">
-                <h2>¡Mensaje enviado!</h2>  
-                <p>En breve nos comunicaremos con vos</p>  
-                <div class="btn-cerrar">
-                    <input for="btn-modal">Cerrar</input>            
-                </div>                
-            </div>
-
-        </div>-->
-
         <div class="container-modal" id="modal" <?php if ($enviado): ?> style="display: flex;" <?php else: ?> style="display: none;" <?php endif; ?>>
             <div class="content-modal">
                 <h2>¡Mensaje enviado!</h2>

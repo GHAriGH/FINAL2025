@@ -477,10 +477,6 @@ select::placeholder {
     background-color: #cd1103;
 }
 
-#btn-modal {
-    display: none;
-}
-
 .container-modal {
     width: 100%;
     height: 100vh;
@@ -492,10 +488,6 @@ select::placeholder {
     justify-content: center;
     align-items: center;
     z-index: 100;
-}
-
-#btn-modal:checked ~ .container-modal {
-    display: flex;
 }
 
 .content-modal {
@@ -523,16 +515,17 @@ select::placeholder {
     justify-content: flex-end;
 }
 
-.content-modal .btn-cerrar input {
+.content-modal .btn-cerrar button {
     padding: 7px 10px;
     background-color: #f61706;
     color: white;
+    text-decoration: none;
     border-radius: 4px;
     cursor: pointer;
     transition: all 300ms ease;
 }
 
-.content-modal .btn-cerrar input:hover {
+.content-modal .btn-cerrar button:hover {
     background-color: #cd1103;
 }
 
