@@ -7,6 +7,8 @@
 
     $enviado = false;
 
+    //////Carga de tabla mensajes con los datos del formulario de Contacto//////
+
     if (isset($_POST['enviar'])){
         $name=trim($_POST['name']);
         $email=trim($_POST['email']);
@@ -37,6 +39,8 @@
 
 <body>
 
+    <!--Header-------------------------------------------------------------------------------------------->
+
     <header>
 
         <div class="menu container">
@@ -66,6 +70,8 @@
         </div>
 
     </header>
+
+    <!--Contenedor de tarjetas de Servicios--------------------------------------------------------------->
 
     <main class="servicios container" id="servicios">
 
@@ -132,6 +138,8 @@
 
     </main>
 
+    <!--Contenedor de tarjetas de Sucursales y sus ubicaciones-------------------------------------------->
+
     <section class="sucursales container" id="sucursales">
 
         <div class="sucursal-txt">
@@ -194,6 +202,8 @@
        
     </section>
 
+    <!--Encabezado de sección de Planes disponibles------------------------------------------------------>
+
     <section class="bg-sec" id="planes">
         <div class="bg-txt container">
             <h2>Tu plan</h2>
@@ -202,6 +212,8 @@
             </p>
         </div>
     </section>
+
+    <!--Contenedor de Planes disponibles----------------------------------------------------------------->                        
 
     <section class="precios container">
 
@@ -240,6 +252,8 @@
 
     </section>
 
+    <!--Contenedor de carrousel con horarios de Clases--------------------------------------------------->
+
     <section class="horarios" id="horarios">
 
         <h2>Horarios</h2> 
@@ -275,7 +289,9 @@
             </div>   
 
         </div>
-    </section>         
+    </section>   
+    
+    <!--Contenedor de sección Sobre Nosotros------------------------------------------------------------>
     
     <section class="nosotros container" id="nosotros">
 
@@ -290,7 +306,9 @@
             <a href="#inscripcion" class="btn-1">Empezá ya</a>
         </div>
 
-    </section>    
+    </section>   
+    
+    <!--Formulario de Contacto-------------------------------------------------------------------------->
 
     <section class="inscripcion container" id="inscripcion">
         <form method="post">
@@ -344,6 +362,8 @@
 
     </section> 
 
+    <!--Footer------------------------------------------------------------------------------------------>
+
     <footer class="footer">
 
         <div class="container">
@@ -392,6 +412,8 @@
         </div>
 
     </footer> 
+
+    <!--scripts de BOOTSTRAP V5.0----------------------------------------------------------------------------------------->
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
