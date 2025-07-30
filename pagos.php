@@ -43,6 +43,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENTE_ID; ?>"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
+"></script>
 
 </head>
 <body>
@@ -148,7 +149,7 @@
             "success" => "http://localhost/FINAL/CLASES/capturamp.php"
             //"failure" => "http://localhost/FINAL/tienda.php"
         );
-        //$preference->auto_return = "approved";
+        $preference->auto_return = "approved";
         $preference->binary_mode = true;
         $preference->save();
         $init_point = $preference->init_point;
@@ -198,18 +199,19 @@
                 }
             }).render('#paypal-button-container');
 
-            const mp = new MercadoPago('TEST-3716fa81-b5cb-49b8-9f72-f399ca469c74', {
+            const mp = new MercadoPago('TEST-8b85a436-e839-4eca-97f1-e82eb52ebd33', {
                 locale: 'es-AR'
             });
+            
             mp.checkout({
                 preference: {
-                    id: '<?php echo $preference->id; ?>'
+                    id: '<?php echo $preference->id; ?>',
                 },
                 render: {
                     container: '.checkout-btn',
                     label: 'Pagar con Mercado Pago'
                 }
-            }); 
+            })
         })
     </script>
 
