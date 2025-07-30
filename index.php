@@ -1,3 +1,28 @@
+ <?php
+    require "CONFIG/config.php";
+    require "CONFIG/database.php";
+      
+    $db = new Database();
+    $conex = $db->Conectar(); 
+
+    $enviado = false;
+
+    //////Carga de tabla mensajes con los datos del formulario de Contacto//////
+
+    if (isset($_POST['enviar'])){
+        $name=trim($_POST['name']);
+        $email=trim($_POST['email']);
+        $telefono=trim($_POST['telefono']);
+        $domicilio=trim($_POST['domicilio']);
+        $plan=trim($_POST['plan']);
+        $mensaje=trim($_POST['mensaje']);
+        $fecha=date("d-m-y");
+        $sql = $conex->prepare("INSERT INTO mensajes(Nombre, Email, Telefono, Domicilio, Id_Plan, Mensaje, Fecha) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $enviado = $sql->execute([$name, $email, $telefono, $domicilio, $plan, $mensaje, $fecha]);
+    } 
+    
+?>    
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,6 +38,8 @@
 </head>
 
 <body>
+
+    <!--Header-------------------------------------------------------------------------------------------->
 
     <header>
 
@@ -43,6 +70,8 @@
         </div>
 
     </header>
+
+    <!--Contenedor de tarjetas de Servicios--------------------------------------------------------------->
 
     <main class="servicios container" id="servicios">
 
@@ -109,6 +138,8 @@
 
     </main>
 
+    <!--Contenedor de tarjetas de Sucursales y sus ubicaciones-------------------------------------------->
+
     <section class="sucursales container" id="sucursales">
 
         <div class="sucursal-txt">
@@ -171,6 +202,8 @@
        
     </section>
 
+    <!--Encabezado de sección de Planes disponibles------------------------------------------------------>
+
     <section class="bg-sec" id="planes">
         <div class="bg-txt container">
             <h2>Tu plan</h2>
@@ -179,6 +212,8 @@
             </p>
         </div>
     </section>
+
+    <!--Contenedor de Planes disponibles----------------------------------------------------------------->                        
 
     <section class="precios container">
 
@@ -217,6 +252,8 @@
 
     </section>
 
+    <!--Contenedor de carrousel con horarios de Clases--------------------------------------------------->
+
     <section class="horarios" id="horarios">
 
         <h2>Horarios</h2> 
@@ -231,48 +268,13 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="IMG/Funcional.jpg" class="d-block w-50 mx-auto" alt="Imagen de clase de Pilates">
-                        <div class="carousel-caption small-text">
-                            <h5>Lunes, Miércoles y Viernes</h5>
-                            <ul>
-                                <li>10:00 - Pilates</li>
-                                <li>14:00 - Spinning</li>
-                                <li>17:00 - Body Pump</li>
-                                <li>18:00 - GAP</li>
-                                <li>18:00 - Boxeo</li>
-                                <li>19:00 - Spinning</li>
-                                <li>19:00 - Calistenia</li>
-                                <li>20:00 - Spinning</li>
-                                <li>20:00 - Zumba</li>
-                            </ul>
-                        </div>
+                        <img src="IMG/Horario1.png" class="d-block w-50 mx-auto" alt="Imagen de clase de Funcional">
                     </div>
                     <div class="carousel-item">
-                        <img src="IMG/Spinning.jpg" class="d-block w-50 mx-auto" alt="Imagen de clase de Spinning">
-                        <div class="carousel-caption small-text">
-                            <h5>Martes y Jueves</h5>
-                            <ul>
-                                <li>10:00 - Pilates</li>
-                                <li>14:00 - Spinning</li>
-                                <li>15:00 - Pilates</li>
-                                <li>18:00 - Stretching</li>
-                                <li>19:00 - Zumba</li>
-                                <li>19:00 - Calistenia</li>
-                                <li>19:00 - Spinning</li>
-                                <li>20:00 - Body Pump</li>
-                            </ul>
-                        </div>
+                        <img src="IMG/Horarios2.png" class="d-block w-50 mx-auto" alt="Imagen de clase de Spinning">
                     </div>
                     <div class="carousel-item">
-                        <img src="IMG/pilates.jpg" class="d-block w-50 mx-auto" alt="Imagen de Clase Funcional">
-                        <div class="carousel-caption small-text">
-                            <h5>Sábados</h5>
-                            <ul>
-                                <li>10:00 - Pilates</li>
-                                <li>14:00 - Spinning</li>
-                                <li>15:00 - Pilates</li>
-                            </ul>
-                        </div>
+                        <img src="IMG/Horarios3.png" class="d-block w-50 mx-auto" alt="Imagen de Clase de Pilates">
                     </div>
                 </div>
                 
@@ -287,7 +289,9 @@
             </div>   
 
         </div>
-    </section>         
+    </section>   
+    
+    <!--Contenedor de sección Sobre Nosotros------------------------------------------------------------>
     
     <section class="nosotros container" id="nosotros">
 
@@ -302,38 +306,63 @@
             <a href="#inscripcion" class="btn-1">Empezá ya</a>
         </div>
 
-    </section>    
+    </section>   
+    
+    <!--Formulario de Contacto-------------------------------------------------------------------------->
 
     <section class="inscripcion container" id="inscripcion">
         <form method="post">
+            <a href="#" class="logo"><img src="IMG/pesasrojas.png" width="50" height="50"></a>
             <h2>Inscribite ahora</h2>
             <h5>Dejanos tus datos, te contactaremos para que inicies tu transformación</h5>
             <div class="input-wrapper">
-                <input type="text" name="name" placeholder="Nombre">
+                <input type="text" name="name" placeholder="Nombre" required>
                 <img class="input-icon" src="IMG/usuario.png" alt="Icono de Usuario">
             </div>
             <div class="input-wrapper">
-                <input type="email" name="email" placeholder="Email">
+                <input type="email" name="email" placeholder="Email" required>
                 <img class="input-icon" src="IMG/mail.png" alt="Icono de Email">
             </div>
             <div class="input-wrapper">
-                <input type="tel" name="telefono" placeholder="Telefono">
+                <input type="tel" name="telefono" placeholder="Telefono" required>
                 <img class="input-icon" src="IMG/telefono.png" alt="Icono de Teléfono">
             </div>
             <div class="input-wrapper">
-                <input type="text" name="domicilio" placeholder="Domicilio">
+                <input type="text" name="domicilio" placeholder="Domicilio" required>
                 <img class="input-icon" src="IMG/ubicacion.png" alt="Icono de Ubicación">
             </div>
             <div class="input-wrapper">
-                <input type="textarea" name="mensaje" placeholder="Mensaje" rows="5" cols="50">
+                <select name="plan" required>
+                    <option value="" selected disabled>Seleccioná tu plan...</option>
+                    <option value=1>Pase x Clase</option>
+                    <option value=2>Low Cost</option>
+                    <option value=3>Pase Libre Multisedes</option>
+                </select>  
+                <img class="input-icon" src="IMG/plan.png" alt="Icono de Plan">             
+            </div>
+            <div class="input-wrapper">
+                <input type="textarea" name="mensaje" placeholder="Mensaje" rows="5" cols="50" required>
                 <img class="input-icon" src="IMG/mensaje.png" alt="Icono de Mensaje">
             </div>
-
-            <input class="btn-1" type="submit" name="enviar" value="Enviar">
-        
+            <div class="boton-modal">
+                <input for="btn-modal" class="btn-modal" type="submit" name="enviar" value="Enviar">                
+            </div>      
+               
         </form>
+        
+        <div class="container-modal" id="modal" <?php if ($enviado): ?> style="display: flex;" <?php else: ?> style="display: none;" <?php endif; ?>>
+            <div class="content-modal">
+                <h2>¡Mensaje enviado!</h2>
+                <p>En breve nos comunicaremos con vos</p>
+                <div class="btn-cerrar">
+                    <a href="index.php"><button class="btn-cerrar">Cerrar</button></a>
+                </div>
+            </div>
+        </div>
 
     </section> 
+
+    <!--Footer------------------------------------------------------------------------------------------>
 
     <footer class="footer">
 
@@ -383,6 +412,8 @@
         </div>
 
     </footer> 
+
+    <!--scripts de BOOTSTRAP V5.0----------------------------------------------------------------------------------------->
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>

@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /*Cada elemento hijo está dentro de los bordes del elemento padre*/
+    box-sizing: border-box; 
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     list-style: none;
@@ -9,15 +9,16 @@
 
 body {
     background-color: black;
-    /*scroll-behavior: smooth;*/
 }
+
+/*::::::::::::::::HEADER::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 header {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/pesas.jpg");
-    background-position: center center; /*Imagen centrada horizontal y verticalmente en el elemento*/
+    background-position: center center; 
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed; /*La posición de la imagen queda fija en la pantalla*/
+    background-attachment: fixed; 
     height: 70vh;
     display: flex;
     align-items: center;
@@ -38,7 +39,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000;  /*Posicionado siempre adelante*/
+    z-index: 1000;  
 }
 
 .menu .logo{
@@ -81,7 +82,6 @@ header {
 }
 
 .header-text h1{
-    /*margin-top: 70px;*/
     color: #ffffff;
     font-size: 70px;
 }
@@ -91,6 +91,8 @@ header {
     margin-top: 20px;
     color: #ffffff;
 }
+
+/*::::::::::::::::::::::::Botones::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .btn-1 {
     display: inline-block;
@@ -108,6 +110,8 @@ header {
     background-color: #cd1103;
     transform: translate(0, -6px);
 }
+
+/*:::::::::::::::::::::SERVICIOS:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .servicios {
     padding: 50px 0px;
@@ -203,6 +207,8 @@ header {
 .servicio:hover .back {
     transform: perspective(600px) rotateY(360deg);
 }
+
+/*:::::::::::::::::::::::::::SUCURSALES:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .sucursales {
     text-align: center;
@@ -304,6 +310,8 @@ header {
     transform: perspective(600px) rotateY(360deg);
 }
 
+/*:::::::::::::::::::::::::::::::PLANES:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 .bg-sec {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/gym.jpg");
     background-position: center center;
@@ -328,6 +336,8 @@ header {
     font-size: 30px;
     margin-bottom: 25px;
 }
+
+/*::::::::::::::::::::PRECIOS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .precios {
     padding: 50px 0px;
@@ -355,16 +365,20 @@ header {
     font-size: 18px;
 }
 
-.horarios h2{
+/*:::::::::::::::::::HORARIOS:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
+.horarios h2 {
     color: white;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .carousel-img {
-      max-width: 100%; /* nunca más grande que la pantalla */
+      max-width: 100%; 
       height: auto;
     }
+
+/*::::::::::::::::NOSOTROS::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .nosotros {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../IMG/nosotros.jpg");
@@ -391,23 +405,26 @@ header {
     margin: 20px;
 }
 
+/*:::::::::::::::INSCRIPCIÓN:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 .inscripcion {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 30px;
 }
 
 form {
     background-color: white;  
     color: black;
-    padding: 50px 35px;
+    padding: 30px 35px;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 300px;
+    width: 600px;
 }
 
 form h4 {
@@ -417,7 +434,7 @@ form h4 {
 
 .input-wrapper {
     position: relative;
-    width: 305px;
+    width: 100%;
     margin-bottom: 15px;
 }
 
@@ -434,7 +451,24 @@ input {
 
 input::placeholder { 
     font-size: 16px;
-    color: gray;
+    color: #99a3a4;
+}
+
+select {
+    color:black;
+    padding: 20px 15px 20px 60px;
+    width: 100%;
+    border-radius: 25px;
+    border: 0; 
+    box-shadow: 0 0 20px rgba(192,203, 251, 0.7);
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+select::placeholder {
+    font-size: 16px;
+    color: lightgrey;
 }
 
 .input-icon {
@@ -445,6 +479,73 @@ input::placeholder {
     top:50%;
     transform: translateY(-55%);
 }
+
+.boton-modal input {
+    padding: 10px 15px;
+    background-color: #f61706;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.boton-modal input:hover {
+    background-color: #cd1103;
+}
+
+.container-modal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(144, 148, 150, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.content-modal {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.content-modal h2 {
+    margin-bottom: 15px;
+}
+
+.content-modal p {
+    padding: 15px 0px;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+}
+
+.content-modal .btn-cerrar {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-modal .btn-cerrar button {
+    padding: 7px 10px;
+    background-color: #f61706;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.content-modal .btn-cerrar button:hover {
+    background-color: #cd1103;
+}
+
+/*:::::::::::::::::::FOOTER::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 .footer{
     background-color: #212F3C;
@@ -503,6 +604,8 @@ input::placeholder {
     padding-left: 6px;
 }
 
+/*::::::::::::::MEDIA QUERY:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
+
 @media(max-width:950px) {
     .menu {
         padding: 20px;
@@ -560,9 +663,6 @@ input::placeholder {
     .precio h3{
         padding-top: 20px;
     }
-    .carousel-caption.small-text {
-        font-size: 0.5rem;
-    }
     .nosotros {
         padding: 15px;
     }
@@ -577,5 +677,21 @@ input::placeholder {
     .nosotros .btn-1 {
         padding: 8px 16px;
         font-size: 0.95rem;
+    }
+    form {
+        padding: 20px;
+        width: 100%;
+    }
+    .input-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 35px;
+    }
+    input {
+        padding: 20px 0px 20px 45px;
+    }
+    .input-icon {
+        height: 20px;
+        width: 20px;
     }
 }
