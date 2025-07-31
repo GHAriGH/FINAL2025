@@ -5,7 +5,7 @@
       
     $db = new Database();
     $conex = $db->Conectar();
-    $sql = $conex->prepare("SELECT Id_Producto, Nombre, Precio FROM Productos WHERE Activo= 1");
+    $sql = $conex->prepare("SELECT Id_Producto, Nombre, Precio FROM productos WHERE Activo= 1");
     $sql->execute();
     $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 

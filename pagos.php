@@ -2,12 +2,7 @@
 
     require "CONFIG/config.php";    
     require "CONFIG/database.php";
-    require 'vendor/autoload.php';
-
-    MercadoPago\SDK::setAccessToken(TOKEN_MP);
-
-    $preference = new MercadoPago\Preference();
-
+   
     $productos_mp = array();
       
     $db = new Database();
@@ -42,8 +37,7 @@
     <link rel="stylesheet" href="CSS\estilo-tienda.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENTE_ID; ?>"></script>
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
-"></script>
+</script>
 
 </head>
 <body>
@@ -110,7 +104,7 @@
                                             $subtotal = $cantidad * $precio;
                                             $total += $subtotal;
 
-                                            $item = new MercadoPago\Item();
+                                            /*$item = new MercadoPago\Item();
                                             $item->id = $_id;
                                             $item->title =$nombre;
                                             $item->quantity = $cantidad;
@@ -118,7 +112,7 @@
                                             $item->currency_id = 'ARS';
 
                                             array_push($productos_mp, $item);
-                                            unset($item);?>    
+                                            unset($item);*/?>    
                                             <tr>
                                                 <td><?php echo $nombre; ?></td>
                                                 <td>
@@ -143,7 +137,7 @@
     </main>
 
     <?php
-        $preference->items = $productos_mp;
+        /*$preference->items = $productos_mp;
 
         $preference->back_urls = array(
             "success" => "http://localhost/FINAL/CLASES/capturamp.php"
@@ -152,7 +146,7 @@
         $preference->auto_return = "approved";
         $preference->binary_mode = true;
         $preference->save();
-        $init_point = $preference->init_point;
+        $init_point = $preference->init_point;*/
         
     ?>
 
@@ -199,7 +193,7 @@
                 }
             }).render('#paypal-button-container');
 
-            const mp = new MercadoPago('TEST-8b85a436-e839-4eca-97f1-e82eb52ebd33', {
+           /* const mp = new MercadoPago('TEST-8b85a436-e839-4eca-97f1-e82eb52ebd33', {
                 locale: 'es-AR'
             });
             
@@ -211,7 +205,7 @@
                     container: '.checkout-btn',
                     label: 'Pagar con Mercado Pago'
                 }
-            })
+            })*/
         })
     </script>
 

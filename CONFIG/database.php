@@ -4,7 +4,7 @@
         private $hostname = "localhost";
         private $database = "gimnasio";
         private $username = "root";
-        private $password = "";
+        private $password = "1427";
         private $charset = "utf8";
 
         function Conectar() {
