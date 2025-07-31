@@ -17,12 +17,12 @@
 
         if($token == $token_tmp) {
 
-            $sql = $conex->prepare("SELECT COUNT(Id_Producto) FROM Productos WHERE Id_Producto = ? AND Activo = 1");
+            $sql = $conex->prepare("SELECT COUNT(Id_Producto) FROM productos WHERE Id_Producto = ? AND Activo = 1");
             $sql->execute([$id]);
 
             if($sql->fetchColumn() > 0){
 
-                $sql = $conex->prepare("SELECT Nombre, Descripcion, Precio FROM Productos WHERE Id_Producto =? AND Activo = 1 LIMIT 1");
+                $sql = $conex->prepare("SELECT Nombre, Descripcion, Precio FROM productos WHERE Id_Producto =? AND Activo = 1 LIMIT 1");
                 $sql->execute([$id]);
                 $row = $sql->fetch(PDO::FETCH_ASSOC);
                 $nombre = $row["Nombre"];

@@ -12,7 +12,7 @@
     if($productos != null) {
         foreach($productos as $clave => $cantidad){
 
-            $sql = $conex->prepare("SELECT Id_Producto, Nombre, Precio, $cantidad AS cantidad FROM Productos WHERE Id_Producto = ? AND Activo = 1");
+            $sql = $conex->prepare("SELECT Id_Producto, Nombre, Precio, $cantidad AS cantidad FROM productos WHERE Id_Producto = ? AND Activo = 1");
             $sql->execute([$clave]);
             $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
 
