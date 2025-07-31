@@ -108,6 +108,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <a href="tienda.php" class="btn btn-dark">Volver a la Tienda</a>
                     </div>            
             <?php } ?>   
         </div>        
