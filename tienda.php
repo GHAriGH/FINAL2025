@@ -27,22 +27,22 @@
     <header data-bs-theme="dark">
         <div class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a href="index.php" class="navbar-brand">
-                    <img src="IMG/pesasrojas.png" width="50" height="50">
+                <a href="index.php" class="navbar-brand" aria-label="Barra de navegación">
+                    <img src="IMG/pesasrojas.png" width="50" height="50" alt="Imagen de pesas rojas">
                     <strong>Tienda Online Tucumán Gym</strong>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Barra de navegación">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarHeader">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">Tu esfuerzo merece lo mejor
+                            <a href="#" class="nav-link active" aria-label="Tu esfuerzo merece lo mejor">Tu esfuerzo merece lo mejor
                             </a>
                         </li>
                     </ul>
                     <a href="checkout.php" >
-                        <img src="IMG/carrito-de-compras.png" id="Carrito" width="50" height="50">
+                        <img src="IMG/carrito-de-compras.png" id="Carrito" width="50" height="50" alt="Imagen de carrito">
                         <span id="num_cart" class="badge bg-secondary"><?php echo $num_cart; ?></span>
                     </a>
                 </div>
@@ -103,6 +103,10 @@
                 } 
             })
         }
+    </script>
+
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Fi3Y40CRHFdIUlvPGvjQp";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
     </script>
 </body>
 </html>
