@@ -1,16 +1,16 @@
 <?php
 class Database {
-    /* private $hostname = "sql107.infinityfree.com";
+    private $hostname = "sql107.infinityfree.com";
     private $database = "if0_39512763_gimnasio";
     private $username = "if0_39512763";
     private $password = "qb7adpe3Svc";
-    private $charset = "utf8"; */
+    private $charset = "utf8";
 
-    private $hostname = "localhost";
+    /* private $hostname = "localhost";
     private $database = "gimnasio";
     private $username = "root";
     private $password = "1427";
-    private $charset = "utf8";
+    private $charset = "utf8"; */
 
     function Conectar() {
         try {
