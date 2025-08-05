@@ -16,7 +16,7 @@
         $domicilio=trim($_POST['domicilio']);
         $plan=trim($_POST['plan']);
         $mensaje=trim($_POST['mensaje']);
-        $fecha=date("d-m-y");
+        $fecha=date("Y-m-d H:i:s");
         $sql = $conex->prepare("INSERT INTO mensajes(Nombre, Email, Telefono, Domicilio, Id_Plan, Mensaje, Fecha) VALUES (?, ?, ?, ?, ?, ?, ?)");
         $enviado = $sql->execute([$name, $email, $telefono, $domicilio, $plan, $mensaje, $fecha]);
     } 
@@ -44,12 +44,12 @@
     <header>
 
         <div class="menu container">
-            <a href="#" class="logo"><img src="IMG/pesasrojas.png" width="50" height="50"></a>
+            <a href="#" class="logo" aria-label="Logo pesas rojas"><img src="IMG/pesasrojas.png" width="50" height="50" alt="Imagen de pesas rojas"></a>
             <input type="checkbox" id="menu">
             <label for="menu">
-                <img class="menu-icono" src="IMG/menu.png">
+                <img class="menu-icono" src="IMG/menu.png" alt="Abrir menú">
             </label>
-            <nav class="navbar">
+            <nav class="navbar" role="navigation" aria-label="Navegación principal">
                 <ul>
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
@@ -324,7 +324,7 @@
                 <img class="input-icon" src="IMG/mail.png" alt="Icono de Email">
             </div>
             <div class="input-wrapper">
-                <input type="tel" name="telefono" placeholder="Telefono" required>
+                <input type="tel" name="telefono" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                 <img class="input-icon" src="IMG/telefono.png" alt="Icono de Teléfono">
             </div>
             <div class="input-wrapper">
@@ -333,7 +333,7 @@
             </div>
             <div class="input-wrapper">
                 <select name="plan" required>
-                    <option value="" selected disabled>Seleccioná tu plan...</option>
+                    <option value="#" selected disabled>Seleccioná tu plan...</option>
                     <option value=1>Pase x Clase</option>
                     <option value=2>Low Cost</option>
                     <option value=3>Pase Libre Multisedes</option>
@@ -417,6 +417,10 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Fi3Y40CRHFdIUlvPGvjQp";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
 
 </body>
 </html>
